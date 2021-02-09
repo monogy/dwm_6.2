@@ -1663,7 +1663,7 @@ run(void)
 
 void
 runAutostart(void) {
-	system("cd /home/elory/scripts; ./autostart.sh &");
+	system("cd /home/monogy/scripts; ./autostart.sh &");
 }
 
 void
