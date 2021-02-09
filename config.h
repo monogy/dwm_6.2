@@ -101,7 +101,7 @@ static const char *openranger[] = {"st","-e","ranger", NULL};
 static Key keys[] = {
     /* modifier                     key        function        argument */
 	{ MODKEY|Mod1Mask,              XK_w,      spawn,          SHCMD("notify-send '📰 正在启动WPS office...\n   将在标签7显示'; wps") },
-	{ MODKEY|Mod1Mask,              XK_s,      spawn,          SHCMD("notify-send '正在启动密码管理器...'; password_manager") },
+	{ MODKEY|Mod1Mask,              XK_s,      spawn,          SHCMD("notify-send '正在启动密码管理器...'; Password_Manager") },
 	{ MODKEY|Mod1Mask,              XK_f,      spawn,          SHCMD("notify-send '🌎 正在启动浏览器Firefox...\n   将在标签9显示'; firefox-esr") },
 	{ MODKEY|Mod1Mask,              XK_v,      spawn,          SHCMD("notify-send '正在启动VmWare Workstation...\n将在标签8显示'; optirun vmware") },
 	// { MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("notify-send '正在启动XMind...'; optirun xmind") },
@@ -111,6 +111,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_q,      spawn,          SHCMD("notify-send '🐧 正在启动QQ...'; /opt/deepinwine/apps/Deepin-QQ/run.sh") },
 	{ MODKEY|Mod1Mask,              XK_m,      spawn,          SHCMD("notify-send '📮 正在启动邮箱...'; /home/monogy/program/thunderbird/thunderbird") },
 	// { MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
+	// /home/monogy/project/shell/translate.sh
 	{ MODKEY|Mod1Mask,              XK_t,      spawn,          SHCMD("/home/monogy/project/shell/translate.sh") },
 	{ MODKEY|Mod1Mask,              XK_p,      spawn,          SHCMD("notify-send '📜 正在启动福昕阅读器...'; FoxitReader") },
 	{ MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("notify-send '🎵 正在启动网易云音乐...'; netease-cloud-music") },
