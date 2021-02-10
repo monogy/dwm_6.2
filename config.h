@@ -117,7 +117,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("notify-send '🎵 正在启动网易云音乐...'; netease-cloud-music") },
 	{ MODKEY|Mod1Mask,              XK_l,      spawn,          SHCMD("notify-send '🎵 正在启动listen1...'; listen1") },
 	{ MODKEY|Mod1Mask,              XK_y,      spawn,          SHCMD("notify-send '📕 正在启动有道词典...'; youdao-dict") },
-	{ MODKEY|Mod1Mask,              XK_z,      spawn,          SHCMD("notify-send '📺 正在启动ZY-视频播放器...'; optirun ZY-Player") },
+	{ MODKEY|Mod1Mask,              XK_z,      spawn,          SHCMD("notify-send '📺 正在启动ZY-视频播放器...'; ZY-Player") },
 	{ MODKEY|ShiftMask,             XK_t,     spawn,          SHCMD("/home/monogy/scripts/tray-toggle.sh") },
 	{ MODKEY|Mod1Mask,              XK_r,      spawn,          {.v = openranger } },
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("/home/monogy/scripts/reWifi.sh") },
