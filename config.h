@@ -125,6 +125,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F7,     spawn,          SHCMD("st -e /home/monogy/project/shell/power_manager.sh") },
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("/home/monogy/scripts/display_manager.sh") },
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("/home/monogy/scripts/touchpd_cmd.sh") },
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("gnome-control-center") },
+	{ MODKEY,                       XK_t,      spawn,          SHCMD("gnome-system-monitor") },
 	{ 0,           XF86XK_Calculator,          spawn,          SHCMD("notify-send '正在启动计算器...'; gnome-calculator")},
 	{ 0,           XF86XK_MonBrightnessUp,     spawn,          SHCMD("brightnessctl specific +5%; pkill -RTMIN+8 dwmblocks") },
 	{ 0,           XF86XK_MonBrightnessDown,   spawn,          SHCMD("brightnessctl specific 5%-; pkill -RTMIN+8 dwmblocks") },
