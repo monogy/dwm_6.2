@@ -135,6 +135,7 @@ static Key keys[] = {
 	{ 0,           XF86XK_AudioRaiseVolume,    spawn,          SHCMD("/usr/bin/amixer -qM set Master 5%+ umute; pkill -RTMIN+10 dwmblocks") },
 	{ 0,           XF86XK_ScreenSaver,         spawn,          SHCMD("slock & xset dpms force off") },
 	{ MODKEY,                       XK_Print,  spawn,          {.v = flameshot } },
+	{ MODKEY|Mod1Mask,              XK_Print,  spawn,          SHCMD("gnome-screenshot") },
 	{ MODKEY,                       XK_Pause,  spawn,          {.v = openhtop } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
