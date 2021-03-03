@@ -122,7 +122,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_r,      spawn,          {.v = openranger } },
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("/home/monogy/scripts/reWifi.sh") },
 	{ MODKEY|ShiftMask,             XK_F2,     spawn,          SHCMD("/home/monogy/scripts/reDhcp.sh") },
-	{ MODKEY,                       XK_F7,     spawn,          SHCMD("st -e /home/monogy/project/shell/power_manager.sh") },
+	{ MODKEY,                       XK_F7,     spawn,          SHCMD("st -e /home/monogy/scripts/dwmbar-functions/power_manager.sh") },
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("/home/monogy/scripts/display_manager.sh") },
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("/home/monogy/scripts/touchpd_cmd.sh") },
 	{ MODKEY,                       XK_s,      spawn,          SHCMD("gnome-control-center") },
