@@ -18,8 +18,8 @@ static const int topbar = 0;                  /* 0 means bottom bar */
 static const Bool viewontag = True;           /* Switch view on tag switch */
 //static const char *fonts[]          = { "TerminessTTF Nerd Font Mono:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true"  };
 //static const char dmenufont[]       = "TerminessTTF Nerd Font Mono:size=12";
-// static const char *fonts[]          = { "VictorMono Nerd Font Mono:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
-static const char* fonts[] = { "SauceCodePro Nerd Font Mono:size:size=12" };
+//static const char *fonts[]          = { "VictorMono Nerd Font Mono:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+ static const char *fonts[]   = { "SauceCodePro Nerd Font Mono:size=12" , "JoyPixels:pixelsize=12"};
 static const char dmenufont[] = "SauceCodePro Nerd Font Mono:size=12";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#333333";
@@ -30,6 +30,7 @@ static const char col_cyan[] = "#37474F";
 static const char col_border[] = "#333333";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
+static const char panel[][20]       = { "xfce4-panel", "Xfce4-panel" }; /* name & cls of panel win */
 static const char* colors[][3] = {
   /*               fg         bg         border   */
   [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -56,7 +57,8 @@ static const Rule rules[] = {
   { "Gimp", NULL, NULL, 0, 1, -1 },
   { "Firefox", NULL, NULL, 1 << 8, 0, -1 },
   { "Vmware", NULL, NULL, 1 << 7, 0, -1 },
-  { "Wps", NULL, NULL, 1 << 6, 0, -1 },
+  { "wps", NULL, NULL, 1 << 6, 0, -1 },
+	{ panel[1],   NULL,       NULL,       (1 << 9) - 1, 0,           -1 },
   // { "Thunderbird",      NULL,       NULL,       1 << 5,       0,           -1 },
 
 };
@@ -106,7 +108,7 @@ static Key keys[] = {
   { MODKEY | Mod1Mask, XK_w, spawn, SHCMD("notify-send '📰 正在启动WPS office...\n   将在标签7显示'; wps") },
   { MODKEY | Mod1Mask, XK_s, spawn, SHCMD("notify-send '正在启动密码管理器...'; Password_Manager") },
   { MODKEY | Mod1Mask, XK_f, spawn, SHCMD("notify-send '🌎 正在启动浏览器Firefox...\n   将在标签9显示'; firefox-esr") },
-  { MODKEY | Mod1Mask, XK_v, spawn, SHCMD("notify-send '正在启动VmWare Workstation...\n将在标签8显示'; sudo optirun vmware") },
+  { MODKEY | Mod1Mask, XK_v, spawn, SHCMD("notify-send '正在启动VmWare Workstation...\n将在标签8显示'; optirun vmware") },
   // { MODKEY|Mod1Mask,              XK_n,      spawn,          SHCMD("notify-send '正在启动XMind...'; optirun xmind") },
   { MODKEY | Mod1Mask, XK_x, spawn, SHCMD("notify-send '正在启动喜马拉雅...'; /opt/apps/com.xmly.deepin/files/run.sh") },
   { MODKEY | Mod1Mask, XK_b, spawn, SHCMD("notify-send '正在启动百度云盘...'; baidunetdisk") },
@@ -116,7 +118,8 @@ static Key keys[] = {
   // { MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
   { MODKEY | Mod1Mask, XK_t, spawn, SHCMD("/home/monogy/project/shell/translate.sh") },
   // { MODKEY|Mod1Mask,              XK_p,      spawn,          SHCMD("notify-send '📜 正在启动福昕阅读器...'; FoxitReader") },
-  { MODKEY | Mod1Mask, XK_p, spawn, SHCMD("notify-send '📜 正在启动PDF阅读器...'; masterpdfeditor5") },
+  // { MODKEY | Mod1Mask, XK_p, spawn, SHCMD("notify-send '📜 正在启动PDF阅读器...'; masterpdfeditor5") },
+  { MODKEY | Mod1Mask, XK_p, spawn, SHCMD("notify-send '📜 正在启动PDF阅读器...'; PDFstdio") },
   { MODKEY | Mod1Mask, XK_n, spawn, SHCMD("notify-send '🎵 正在启动网易云音乐...'; netease-cloud-music") },
   { MODKEY | Mod1Mask, XK_l, spawn, SHCMD("notify-send '🎵 正在启动listen1...'; listen1") },
   { MODKEY | Mod1Mask, XK_y, spawn, SHCMD("notify-send '📕 正在启动有道词典...'; youdao-dict") },
@@ -126,7 +129,7 @@ static Key keys[] = {
   { MODKEY, XK_F2, spawn, SHCMD("/home/monogy/scripts/reWifi.sh") },
   { MODKEY | ShiftMask, XK_F2, spawn, SHCMD("/home/monogy/scripts/reDhcp.sh") },
   { MODKEY, XK_F7, spawn, SHCMD("st -e /home/monogy/scripts/dwmbar-functions/power_manager.sh") },
-  { MODKEY, XK_F8, spawn, SHCMD("/home/monogy/scripts/display_manager.sh") },
+  { MODKEY, XK_F8, spawn, SHCMD("/home/monogy/scripts/toBin/screen_extend.sh") },
   { MODKEY, XK_F9, spawn, SHCMD("/home/monogy/scripts/touchpd_cmd.sh") },
   { MODKEY, XK_F10, spawn, SHCMD("pkill -RTMIN+19 dwmblocks") },
   { MODKEY, XK_s, spawn, SHCMD("gnome-control-center") },
@@ -137,7 +140,8 @@ static Key keys[] = {
   { 0, XF86XK_AudioMute, spawn, SHCMD("/usr/bin/amixer set Master toggle; pkill -RTMIN+10 dwmblocks") },
   { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("/usr/bin/amixer -qM set Master 2%- umute; pkill -RTMIN+10 dwmblocks") },
   { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("/usr/bin/amixer -qM set Master 2%+ umute; pkill -RTMIN+10 dwmblocks") },
-  { 0, XF86XK_ScreenSaver, spawn, SHCMD("slock & xset dpms force off") },
+  // { 0, XF86XK_ScreenSaver, spawn, SHCMD("slock & xset dpms force off") },
+  { 0, XF86XK_ScreenSaver, spawn, SHCMD("/home/monogy/scripts/slock_screen.sh") },
   { MODKEY, XK_Print, spawn, { .v = flameshot } },
   { MODKEY | Mod1Mask, XK_Print, spawn, SHCMD("gnome-screenshot") },
   { MODKEY, XK_Pause, spawn, { .v = openhtop } },
