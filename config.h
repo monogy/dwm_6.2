@@ -21,11 +21,11 @@ static const Bool viewontag = True;           /* Switch view on tag switch */
 //static const char *fonts[]          = { "VictorMono Nerd Font Mono:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
  static const char *fonts[]   = { "SauceCodePro Nerd Font Mono:size=12" , "JoyPixels:pixelsize=12"};
 static const char dmenufont[] = "SauceCodePro Nerd Font Mono:size=12";
-static const char col_gray1[] = "#222222";
+static const char col_gray1[] = "#222222"; //bar背景色
 static const char col_gray2[] = "#333333";
-static const char col_gray3[] = "#bbbbbb";
-static const char col_gray4[] = "#eeeeee";
-static const char col_cyan[] = "#37474F";
+static const char col_gray3[] = "#bbbbbb"; //bar字体颜色
+static const char col_gray4[] = "#eeeeee"; //仅窗口tag及其name字体颜色
+static const char col_cyan[] = "#37474F";//仅窗口tag及其name背景颜色
 //static const char col_border[]      = "#43A5F5";
 static const char col_border[] = "#333333";
 static const unsigned int baralpha = 0xd0;
@@ -35,6 +35,7 @@ static const char* colors[][3] = {
   /*               fg         bg         border   */
   [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
   [SchemeSel] = { col_gray4, col_cyan, col_border },
+	[SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
 };
 static const unsigned int alphas[][3] = {
   /*               fg      bg        border     */
@@ -149,10 +150,22 @@ static Key keys[] = {
   { MODKEY, XK_Return, spawn, { .v = termcmd } },
   { MODKEY, XK_grave, togglescratch, { .v = scratchpadcmd } },
   { MODKEY, XK_b, togglebar, { 0 } },
-  { MODKEY, XK_j, focusstack, { .i = -1 } },
-  { MODKEY, XK_i, focusstack, { .i = -1 } },
-  { MODKEY, XK_l, focusstack, { .i = +1 } },
-  { MODKEY, XK_k, focusstack, { .i = +1 } },
+
+  // { MODKEY, XK_j, focusstack, { .i = -1 } },
+  // { MODKEY, XK_i, focusstack, { .i = -1 } },
+  // { MODKEY, XK_l, focusstack, { .i = +1 } },
+  // { MODKEY, XK_k, focusstack, { .i = +1 } },
+
+	{ MODKEY, XK_s, show,           {0} },
+	{ MODKEY, XK_h, hide,           {0} },
+  { MODKEY, XK_j, focusstackvis,  {.i = +1 } },
+	{ MODKEY, XK_l, focusstackvis,  {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_j,      focusstackhid,  {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_l,      focusstackhid,  {.i = -1 } },
+  { MODKEY, XK_i, focusstackvis,  {.i = +1 } },
+	{ MODKEY, XK_k, focusstackvis,  {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_i,      focusstackhid,  {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      focusstackhid,  {.i = -1 } },
   { MODKEY, XK_e, incnmaster, { .i = +1 } },
   { MODKEY, XK_d, incnmaster, { .i = -1 } },
   { MODKEY, XK_Right, setmfact, { .f = +0.05 } },
@@ -199,6 +212,7 @@ static Button buttons[] = {
   /* click                event mask      button          function        argument */
   { ClkLtSymbol, 0, Button1, setlayout, { 0 } },
   { ClkLtSymbol, 0, Button3, setlayout, { .v = &layouts[2] } },
+	{ ClkWinTitle,          0,              Button1,        togglewin,      {0} },
   { ClkWinTitle, 0, Button2, zoom, { 0 } },
   { ClkStatusText, 0, Button1, sigdwmblocks, { .i = 1 } },
   { ClkStatusText, 0, Button2, sigdwmblocks, { .i = 2 } },
